@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{{entry.title}}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+		<meta name="description" content="Responsive Image Gallery with jQuery" />
+		<meta name="keywords" content="jquery, carousel, image gallery, slider, responsive, flexible, fluid, resize, css3" />
+		<meta name="author" content="Codrops" />
+		<link rel="stylesheet" type="text/css" href="/static/css/elastislide.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/css.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/cssfont.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+		<link rel="stylesheet" href="/static/css/flipster/demo.css">
+		<link rel="stylesheet" href="/static/css/jquery.flipster.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/styleMain.css">
+		<script id="img-wrapper-tmpl" type="text/x-jquery-tmpl">					
+		<div class="rg-image-wrapper">
+			{% if itemsCount > 1 %}
+				<div class="rg-image-nav">
+				</div>
+			{% endif %}	
+			<div class="rg-image"></div>
+			<div class="rg-loading"></div>
+			<div class="rg-caption-wrapper">
+				<div class="rg-caption" style="display:none;">
+					<p></p>
+				</div>
+			</div>
+		</div>
+	</script>
+</head>
+<body>
+			{% set background = get('background_image')%}
+  <div class="container-fluid" style="background-image: url({{getAssetUrl(background.background_image)}});">
+		<div class="container" style="background-image: url({{getAssetUrl(background.background_texture)}});">	
+	
+
+		{% include "partials/header.html" %}
+
+		{% block content %}{% endblock %}
+
+		{% include "partials/footer.html" %}
+		</div>
+	</div>
+</body>
+	<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.tmpl.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.elastislide.js"></script>
+	<script type="text/javascript" src="/static/js/gallery.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.flipster.min.js"></script>	
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/static/js/script.js"></script>
+</html>

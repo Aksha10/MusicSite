@@ -1,0 +1,120 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<div class="btn-grid-gal row">
+	<button class="btn-grid active" type="button">{{entry.button.grid_button}}</button>
+	<button class="btn-list" type="button">{{entry.button.list_button}}</button>
+	<button class="btn-gal" type="button">{{entry.button.gallery_button}}</button>
+</div>
+{# Grid View #}
+<div class="gridAudio">
+	<div class="row">
+		<div class="divgridAud">
+			<audio controls id="srcAud"></audio>
+		</div>
+		<p class="paraGridAud"></p>
+	</div>
+	<div>
+		<div class="img-grid">		
+			{% for gridView in entry.grid_view%}
+				<img class="playAudio gridDescription" id="{{gridView.audio_id.url}}" src="{{gridView.image.url}}" 
+					data-placement="top" title="{{gridView.audio_title}}" data-title='{{entry.label.track}}: {{gridView.data_title}}' 
+					data-artist='{{entry.label.artist}}: {{gridView.data_artist}}' data-genre= '{{entry.label.genre}}: {{gridView.data_genre}}' data-length= '{{entry.label.length}}: {{gridView.data_length}}' data-rating='{{gridView.data_rating}}'>
+			{% endfor %}
+		</div>
+	</div>
+</div>	
+{# Gallery View #}
+<div class="galAudio disp">
+	<div class="audioPlayer">
+		<audio controls id="srcAudio"></audio>
+	</div>
+	<article id="demo-carousel" class="demo">			
+		<div id="carousel" class="flipster">
+			<ul class="flip-items">
+				<!-- class="galInfoClick" -->
+				{% for galleryView in entry.grid_view %}
+					<li data-placement="top" title="{{galleryView.audio_title}}" >
+						<img class="audio-play galDescription" width="450px" controls src="{{galleryView.image.url}}" 
+						id="{{galleryView.audio_id.url}}" data-title='{{entry.label.track}}: {{galleryView.data_title}}' data-artist='{{entry.label.artist}}: {{galleryView.data_artist}}' 
+						data-genre= '{{entry.label.genre}}: {{galleryView.data_genre}}' data-length= '{{entry.label.length}}: {{galleryView.data_length}}' data-rating='{{galleryView.data_rating}}' type="audio/mp3">
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</article>
+	<p class="paraGalAud"></p>		
+</div>
+{# List View #}
+<div class="listAudio disp">
+	<div class="player-aud">
+		<audio controls id="audio-src"></audio>
+	</div>
+	<table id="statusInfo">
+		<tr>
+			{% for listTitle in entry.list_view.table_heading %}
+				<th>{{listTitle.title}}</th>
+			{% endfor %}
+		</tr>
+		{% for listView in entry.grid_view %}
+					{% if listView.data_rating == 1 %}
+				<tr class="audio-tr" id="{{listView.audio_id.url}}">
+					<td>{{loop.index}}</td>
+					<td class="play-stop">{{listView.status}}</td>
+					<td>{{listView.audio_title}}</td>
+					<td>{{listView.data_artist}}</td>
+					<td>{{listView.data_genre}}</td>
+					<td>{{listView.data_length}}</td>
+					<td><img src="{{listView.file.url}}"></td>
+				</tr> 
+			{% endif %}
+			{% if listView.data_rating == 2 %}
+				<tr class="audio-tr" id="{{listView.audio_id.url}}">
+					<td>{{loop.index}}}</td>
+					<td class="play-stop">{{listView.status}}</td>
+					<td>{{listView.audio_title}}</td>
+					<td>{{listView.data_artist}}</td>
+					<td>{{listView.data_genre}}</td>
+					<td>{{listView.data_length}}</td>
+					<td><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"></td>
+				</tr> 
+			{% endif %}
+			{% if listView.data_rating == 3 %}
+				<tr class="audio-tr" id="{{listView.audio_id.url}}">
+					<td>{{loop.index}}</td>
+					<td class="play-stop">{{listView.status}}</td>
+					<td>{{listView.audio_title}}</td>
+					<td>{{listView.data_artist}}</td>
+					<td>{{listView.data_genre}}</td>
+					<td>{{listView.data_length}}</td>
+					<td><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"></td>
+				</tr> 
+			{% endif %}
+			{% if listView.data_rating == 4 %}
+				<tr class="audio-tr" id="{{listView.audio_id.url}}">
+					<td>{{loop.index}}</td>
+					<td class="play-stop">{{listView.status}}</td>
+					<td>{{listView.audio_title}}</td>
+					<td>{{listView.data_artist}}</td>
+					<td>{{listView.data_genre}}</td>
+					<td>{{listView.data_length}}</td>
+					<td><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"></td>
+				</tr> 
+			{% endif %}
+			{% if listView.data_rating == 5 %}
+				<tr class="audio-tr" id="{{listView.audio_id.url}}">
+					<td>{{loop.index}}</td>
+					<td class="play-stop">{{listView.status}}</td>
+					<td>{{listView.audio_title}}</td>
+					<td>{{listView.data_artist}}</td>
+					<td>{{listView.data_genre}}</td>
+					<td>{{listView.data_length}}</td>
+					<td><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"><img src="{{listView.file.url}}"></td>
+				</tr> 
+			{% endif %}
+		{% endfor %}
+	</table>
+</div>
+
+{% endblock %}
+

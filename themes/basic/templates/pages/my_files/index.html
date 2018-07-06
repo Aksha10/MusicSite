@@ -1,0 +1,108 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<div class="container2">
+	<div class="panel-group" id="accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading accord active" data-parent="#accordion" data-toggle="collapse" data-target="#collapse1">
+				<h4 class="panel-title">
+					<a href="{{entry.accordian.documents.link.href}}">{{entry.accordian.documents.link.title}}</a>
+				</h4>
+			</div>
+			<div id="collapse1" class="panel-collapse collapse in">
+				<div class="panel-body">
+					{% for document in entry.accordian.documents.data %}
+						<div class="img-icon">
+							<img class="image-icon" src="{{document.file_logo.url}}">
+							<h5 class="para1">{{document.file_heading}}</h5><p class="small">{{document.file_size}}</p>
+							<h6 class="para2">{{document.file_status}}</h6>
+							<img class="add row" src="{{document.image.url}}">
+							<p class="para3">
+								{{document.desc}}
+							</p>
+							<img src="{{document.arrow_image.url}}" class="arrow"  data-toggle="tooltip" data-placement= "bottom"
+								title="{{document.hover_text}}">
+						</div>
+					{% endfor %}
+				</div> 
+			</div>
+		</div>				
+		<div class="panel panel-default">
+			<div class="panel-heading accord"  data-parent="#accordion" data-toggle="collapse" data-target="#collapse2">
+				<h4 class="panel-title">
+						<a href="{{entry.accordian.presentations.link.href}}">{{entry.accordian.presentations.link.title}}</a>
+				</h4>
+			</div>
+			<div id="collapse2" class="panel-collapse collapse">
+				<div class="panel-body">	
+					{% for presentations in entry.accordian.presentations.data %}
+						<div class="img-icon">
+							<img class="image-icon" src="{{presentations.file_logo.url}}">
+							<h5 class="para1">{{presentations.file_heading}}</h5><p class="small">{{presentations.file_size}}</p>
+							<h6 class="para2">{{presentations.file_status}}</h6>
+							<img class="add row" src="{{presentations.image.url}}">
+							<p class="para3">
+								{{presentations.desc}}
+							</p>
+							<img src="{{presentations.arrow_image.url}}" class="arrow"  data-toggle="tooltip" data-placement= "bottom"
+								title="{{presentations.hover_text}}">
+						</div>
+					{% endfor %}						
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading accord"  data-parent="#accordion" data-toggle="collapse" data-target="#collapse3">
+				<h4 class="panel-title">
+					<a href="{{entry.accordian.spreadsheets.link.href}}">{{entry.accordian.spreadsheets.link.title}}</a>
+				</h4>
+			</div>
+			<div id="collapse3" class="panel-collapse collapse">
+				<div class="panel-body">
+					{% for spreadsheets in entry.accordian.spreadsheets.data %}
+						<div class="img-icon">
+							<img class="image-icon" src="{{spreadsheets.file_logo.url}}">
+							<h5 class="para1">{{spreadsheets.file_heading}}</h5><p class="small">{{spreadsheets.file_size}}</p>
+							<h6 class="para2">{{spreadsheets.file_status}}</h6>
+							<img class="add row" src="{{spreadsheets.image.url}}">
+							<p class="para3">
+								{{spreadsheets.desc}}
+							</p>
+							<img src="{{spreadsheets.arrow_image.url}}" class="arrow"  data-toggle="tooltip" data-placement= "bottom"
+								title="{{spreadsheets.hover_text}}">
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>									
+		<div class="panel panel-default">
+			<div class="panel-heading accord"  data-parent="#accordion" data-toggle="collapse" data-target="#collapse4">
+				<h4 class="panel-title">
+						<a href="{{entry.accordian.pdf_s.link.href}}">{{entry.accordian.pdf_s.link.title}}</a>
+				</h4>
+			</div>
+			<div id="collapse4" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div class="img-icon">
+						{% for pdf in entry.accordian.pdf_s.data %}
+							<div class="img-icon">
+								<img class="image-icon" src="{{pdf.file_logo.url}}">
+								<h5 class="para1">{{pdf.file_heading}}</h5>
+								<p class="small">{{pdf.file_size}}</p>
+								<h6 class="para2">{{pdf.file_status}}</h6>
+								<img class="add row" src="{{pdf.image.url}}">
+								<p class="para3">
+									{{pdf.desc}}
+								</p>
+								<img src="{{pdf.arrow_image.url}}" class="arrow"  data-toggle="tooltip" data-placement= "bottom"
+									title="{{pdf.hover_text}}">
+							</div>
+						{% endfor %}										
+					</div>
+				</div>
+			</div>
+		</div> 
+	</div>
+</div>
+{% endblock %}
+

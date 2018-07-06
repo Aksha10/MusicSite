@@ -1,0 +1,31 @@
+{# If you have a "Content Type" for footer in Built.io Contentstack then use get() view helper to retrieve footer entry. #}
+{# e.g. set footer = get("footer_content_type_id") #}
+{# And then render footer values using the {{footer.field_name}} #}
+
+{% set footer = get('footer') %}
+
+<footer class="footer">
+  <div>
+    <img class="line" src="{{footer.line_image.url}}" alt="Line">
+  </div>
+  <div class="box">
+    {% for footerLink in footer.links.link%}
+      {% if loop.last %}
+        <a class="bottomlink" href="{{footerLink.href}}">{{footerLink.title}}</a>
+        {% else %}
+        <a class="bottomlink line-after" href="{{footerLink.href}}">{{footerLink.title}}</a>
+      {% endif%}
+    {% endfor%}
+  </div>
+  <div>
+    <img class="milogo" src="{{ footer.logo.mike_logo.url}}">
+    <small>{{footer.logo.desc}}</small>
+  </div>
+  <div class="foot">
+    {% for siteIcon in footer.socialsite_icons%}
+      <a href="{{siteIcon.link.href}}" class="iconNav">
+        <img class="icon" src="{{siteIcon.image.url}}">
+      </a>	
+    {% endfor%}	
+  </div>
+</footer>

@@ -1,0 +1,48 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<div class="btn-grid-gal row">
+	<button class="btn-grid active" type="button">{{entry.button.grid_button}}</button>
+	<button class="btn-gal" type="button">{{entry.button.gallery_button}}</button>
+</div>
+
+{# Grid View #}
+<div class="gridvid">
+	<div class="row">
+		<div class="divgrid">
+			<video controls id="srcVid" width="450" height="300"></video>
+		</div>
+		<p class="paraGridVid"></p>
+	</div>
+	<!--poster view-->
+	<div>
+	{% for gridView in entry.grid_view %}
+		<div class="gridimg" >
+			<img class="playVid gridInfoClick" id="{{gridView.video.url}}" src="{{gridView.image.url}}" 
+				data-placement="top" title="{{gridView.video_title}}" data-title="{{gridView.data_title}}" 
+				data-artist="{{gridView.data_artist}}" data-genre= "{{gridView.data_genre}}" data-length= "{{gridView.data_length}}" data-rating="{{gridView.data_rating}}">
+		</div>
+	{% endfor %}
+	</div>
+</div>	
+{# Gallery View #}
+<div class="galvid disp">
+	<article id="demo-carousel" class="demo">			
+		<div id="carousel" class="flipster">
+			<ul class="flip-items">
+				<!-- class="galInfoClick" -->
+				{% for galleryView in entry.grid_view %}
+					<li data-placement="top" title="{{galleryView.video_title.url}}" >
+						<video class="pausevid galInfoClick" width="450px" controls poster="{{galleryView.image.url}}" 
+						data-title='{{galleryView.data_title}}' data-artist='{{galleryView.data_artist}}' data-genre= '{{galleryView.data_genre}}' 
+						data-length= '{{galleryView.data_length}}' data-rating='{{galleryView.data_rating}}'>
+						<source src="{{galleryView.video.url}}" type="video/mp4"></video>
+					</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</article>
+	<p class="paraGalVid"></p>		
+</div>
+{% endblock %}
+

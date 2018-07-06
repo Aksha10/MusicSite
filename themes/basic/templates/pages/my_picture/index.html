@@ -1,0 +1,48 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<div class="btn-grid-gal">
+  <button class="btn-grid active" type="button">{{entry.button.grid_title}}</button>
+  <button class="btn-gal" type="button">{{entry.button.gallery_title}}</button>
+</div>	
+<div class="grid">
+  <div class="picLine">
+    {% for gridView in entry.grid.image_grid %}
+      <img class="image imgs picLine" src="{{getAssetUrl(gridView.file)}}">
+    {% endfor %}
+  </div>
+  <div class="container1">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img class="modal-content" id="expandedImg">
+    <div id="imgtext">
+      {{entry.grid.modal_image_desc}}
+    </div>
+  </div>	
+</div>
+<div id="rg-gallery" class="rg-gallery disp">
+  <div class="rg-thumbs">
+    <!-- Elastislide Carousel Thumbnail Viewer -->
+    <div class="es-carousel-wrapper">
+      <div class="es-nav">
+        <span class="es-nav-prev" style="background: transparent url({{getAssetUrl(entry.gallery.left_arrow)}}) no-repeat top left"></span>
+        <span class="es-nav-next" style="background: transparent url({{getAssetUrl(entry.gallery.right_arrow)}}) no-repeat top right"></span>
+      </div>
+      <div class="es-carousel">
+        <ul>
+          {% for galleryView in entry.gallery.gallery_view %}
+            <li>
+              <a href="#">
+                <img src="{{getAssetUrl(galleryView.image)}}" 
+                data-large="{{getAssetUrl(galleryView.image)}}"
+                data-description="{{galleryView.image_desc}}">
+              </a>    
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <!-- End Elastislide Carousel Thumbnail Viewer -->
+  </div><!-- rg-thumbs -->
+</div><!-- rg-gallery -->
+{% endblock %}
+
