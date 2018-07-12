@@ -602,7 +602,6 @@ input {
   width: 50%;
   height:40%;
   margin-top: 235px;
-  margin-left: 15px;
 }
 
 
@@ -843,3 +842,7 @@ small {
 .active {
   background: linear-gradient(to bottom, rgb(26, 189, 208),rgb(41, 130, 161));
 }  
+
+.highlight {
+  filter: drop-shadow(8px 8px 10px gray);
+}
