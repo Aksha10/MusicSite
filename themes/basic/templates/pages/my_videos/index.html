@@ -32,7 +32,7 @@
 			<ul class="flip-items">
 				<!-- class="galInfoClick" -->
 				{% for galleryView in entry.grid_view %}
-					<li data-placement="top" title="{{galleryView.video_title.url}}" >
+					<li class="videoFlip" data-placement="top" title="{{galleryView.video_title.url}}" >
 						<video class="pausevid vidDesc" width="450px" controls poster="{{galleryView.image.url}}" 
 						data-title='{{galleryView.data_title}}' data-artist='{{galleryView.data_artist}}' data-genre= '{{galleryView.data_genre}}' 
 						data-length= '{{galleryView.data_length}}' data-rating='{{galleryView.data_rating}}'>

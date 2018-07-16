@@ -1,14 +1,15 @@
 {% extends "layouts/default.html" %}
 
 {% block content %}
-<div>
-  <h2 class="heading2">{{entry.heading}}</h2>
-  <h1 class="heading1">{{entry.sub_heading}}</h1>
-  <p class="para"><img class="guitar" src="{{entry.image.url}}" alt="guitar">
-  <div class="paragraph">
-    {{entry.desc}}
+ <div class="row">
+    <div class="col-sm-6">
+      <h2 class="heading2">{{entry.heading}}</h2>
+      <h1 class="heading1">{{entry.sub_heading}}</h1>
+       <p>{{entry.desc}}</p>
+    </div>
+    <div class="col-sm-6">
+      <img class="guitar" src="{{entry.guitar_image.image.url}}" alt="{{entry.guitar_image.alt}}">
+    </div>
   </div>
-  </p>			
-</div>					
 {% endblock %}
 

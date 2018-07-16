@@ -8,15 +8,13 @@
 <div class="grid">
   <div class="picLine">
     {% for gridView in entry.grid.image_grid %}
-      <img class="image imgs picLine" src="{{getAssetUrl(gridView.file)}}">
+      <img class="image imgs picLine" src="{{getAssetUrl(gridView.file)}}" data-description="{{gridView.modal_image_desc}}" alt="{{gridView.alt}}">         
     {% endfor %}
   </div>
   <div class="container1">
     <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
     <img class="modal-content" id="expandedImg">
-    <div id="imgtext">
-      {{entry.grid.modal_image_desc}}
-    </div>
+      <div id="imgtext"></div>
   </div>	
 </div>
 <div id="rg-gallery" class="rg-gallery disp">
@@ -32,9 +30,9 @@
           {% for galleryView in entry.gallery.gallery_view %}
             <li>
               <a href="#">
-                <img src="{{getAssetUrl(galleryView.image)}}" 
+                <img class="images" src="{{getAssetUrl(galleryView.image)}}" 
                 data-large="{{getAssetUrl(galleryView.image)}}"
-                data-description="{{galleryView.image_desc}}">
+                data-description="{{galleryView.image_desc}}" alt"{{galleryView.alt}}">
               </a>    
             </li>
           {% endfor %}

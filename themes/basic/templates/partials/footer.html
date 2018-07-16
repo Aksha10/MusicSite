@@ -18,14 +18,16 @@
     {% endfor%}
   </div>
   <div>
-    <img class="milogo" src="{{ footer.logo.mike_logo.url}}">
-    <small>{{footer.logo.desc}}</small>
+    <a href="{{footer.logo.link.href}}"><img class="milogo" src="{{ footer.logo.mike_logo.url}}" alt="{{footer.logo.alt}}"></a>
+    <small>{{footer.copyright}}</small>
   </div>
   <div class="foot">
-    {% for siteIcon in footer.socialsite_icons%}
-      <a href="{{siteIcon.link.href}}" class="iconNav">
-        <img class="icon" src="{{siteIcon.image.url}}">
-      </a>	
+    {% for siteIcon in footer.socialsite_icons%}    
+      {% if siteIcon.new_tab == true %}
+        <a href="{{siteIcon.link.href}}" class="iconNav"  target="_blank" >
+          <img class="icon" src="{{siteIcon.image.url}}" alt="{{siteIcon.alt}}">
+        </a>  
+      {% endif %}  
     {% endfor%}	
   </div>
 </footer>

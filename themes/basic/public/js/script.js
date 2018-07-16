@@ -15,6 +15,7 @@ $(document).ready(function () {
 	$('.image').click(function (imgs) {
 		var expandImg = document.getElementById("expandedImg");
 		var imgText = document.getElementById("imgtext");
+		imgText.data-description = $(this)[0].data-description;
 		expandImg.src = $(this)[0].src;
 		expandImg.parentElement.style.display = "block";
 	})
@@ -40,6 +41,15 @@ $(document).ready(function () {
 	//jquery to play video on image click	
 	$('img.playVid').click(function (event) {
 		$("#srcVid").attr("src", this.id)[0].play();
+		var z = this.id;
+		$(".videoFlip").each(function() {	
+			if( z == $(this).find(".pausevid source").attr("src") ){		
+				$('.pausevid').each(function() {
+					$(this).get(0).pause();
+				});
+				$(this).find(".pausevid")[0].play();
+			}			
+		})
 	});	
 
 	// for play/pause
@@ -100,7 +110,6 @@ $(document).ready(function () {
 
 	//jquery to play audio and view audio player on image click	
 	$('img.audio').click(function (event) {
-		$(this).addClass("highlight"); 
 		$(".srcAudio").attr("src", this.id)[0].play();
 		var x = this.id
 		$("#statusInfo tr").each(function () {
@@ -112,14 +121,13 @@ $(document).ready(function () {
 			}
 		})
 	});
-
-	//display details of grid 
-	$(".audDescription").click(function () {
-		var title = $(this).attr('data-title');
-		var artist = $(this).attr('data-artist');
-		var genre = $(this).attr('data-genre');
-		var length = $(this).attr('data-length');
-		var rating = $(this).attr('data-rating');
+	
+	function desc(x){
+		var title = $(x).attr('data-title');
+		var artist = $(x).attr('data-artist');
+		var genre = $(x).attr('data-genre');
+		var length = $(x).attr('data-length');
+		var rating = $(x).attr('data-rating');
 		var index = 1;
 		var img;
 		var str = title + "<br/>" + artist + "<br/>" + genre + "<br/>" + length + "<br/>" + "Rating:"
@@ -129,6 +137,10 @@ $(document).ready(function () {
 		}
 		$('.paraGridAud').html(str);
 		$('.paraGalAud').html(str);
+	}
+	//display details of grid 
+	$(".audDescription").click(function () {
+		desc(this);
 	});
 
 	//View grid
@@ -160,7 +172,6 @@ $(document).ready(function () {
 	//View gallery
 	$('.btn-gal').click(function () {
 		$(this).addClass('active');
-		$(this).addClass("highlight");
 		$('.galAudio').removeClass('disp');
 		$('.gridAudio').addClass('disp');
 		$('.listAudio').addClass('disp');
@@ -174,7 +185,7 @@ $(document).ready(function () {
 	//to play audio in list view
 	$('tr.audio-tr').click(function (event) {
 		$(".srcAudio").attr("src", this.id)[0].play();
-		
+		desc(this);
 	});
 
 	//jquery to change the status in list view

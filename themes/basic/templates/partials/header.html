@@ -9,13 +9,13 @@
     {% for header in header.header_images %}
       <div class="col-sm-4">
         <div class="music-mike">
-        <img src="{{header.image.url}}">
+        <img src="{{header.image.url}}" alt="{{header.alt}}">
         </div>
       </div>
     {% endfor %}
     <div class="col-sm-4">
       <div class="search-text">
-      <img class="search-icon" src="{{header.search_image.url}}" alt="MikeImage">
+      <img class="search-icon" src="{{header.search_image.url}}">
         <input type="text" name="search" placeholder="Search..." class="search">   
       </div>
     </div> 

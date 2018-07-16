@@ -35,15 +35,7 @@ body{
   padding: 0;
 }
     
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-    
-    
+  
 .music-mike {
   width: 90%;
   height: auto;
@@ -92,11 +84,7 @@ body{
   float: left;
   width:20%;
 }
-    
-.paragraph {
-  width:45%;
-  line-height:1.5;
-}
+  
     
 .list1 a {
   display: block;
@@ -200,16 +188,11 @@ h2 {
 }
 
 
-.para {
-  font-size:14.5px;
-}
-
-
 .guitar {
-  float:right;
-  width: 17%;
+  float: right;
+  width: 32%;
   height: auto;
-  margin-top: -75px;
+  margin-top: 25px;
   background-repeat: no-repeat;
   background-size: 100% 100%
 }
@@ -223,7 +206,7 @@ h2 {
 }
   
   
-img:hover {
+.image:hover, .images:hover{
   opacity: 0.8;
 }
   
