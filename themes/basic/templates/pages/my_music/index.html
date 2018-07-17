@@ -19,7 +19,7 @@
 		{% for gridView in entry.grid_view%}
 			<img class="playAudio audDescription audio" id="{{gridView.audio_id.url}}" src="{{gridView.image.url}}" 
 				data-placement="top" title="{{gridView.audio_title}}" data-title='{{entry.label.track}}: {{gridView.data_title}}' 
-				data-artist='{{entry.label.artist}}: {{gridView.data_artist}}' data-genre= '{{entry.label.genre}}: {{gridView.data_genre}}' data-length= '{{entry.label.length}}: {{gridView.data_length}}' data-rating='{{gridView.data_rating}}'>
+				data-artist='{{entry.label.artist}}: {{gridView.data_artist}}' data-genre= '{{entry.label.genre}}: {{gridView.data_genre}}' data-length= '{{entry.label.length}}: {{gridView.data_length}}' data-rating='{{gridView.data_rating}}' alt="{{gridView.alt}}">
 		{% endfor %}
 	</div>
 </div>	
@@ -32,8 +32,7 @@
 				{% for galleryView in entry.grid_view %}
 					<li data-placement="top" title="{{galleryView.audio_title}}" >
 						<img class="audio-play audDescription audio" width="450px" controls src="{{galleryView.image.url}}" 
-						id="{{galleryView.audio_id.url}}" data-title='{{entry.label.track}}: {{galleryView.data_title}}' data-artist='{{entry.label.artist}}: {{galleryView.data_artist}}' 
-						data-genre= '{{entry.label.genre}}: {{galleryView.data_genre}}' data-length= '{{entry.label.length}}: {{galleryView.data_length}}' data-rating='{{galleryView.data_rating}}' type="audio/mp3">
+						id="{{galleryView.audio_id.url}}" data-title='{{entry.label.track}}: {{galleryView.data_title}}' data-artist='{{entry.label.artist}}: {{galleryView.data_artist}}' data-genre= '{{entry.label.genre}}: {{galleryView.data_genre}}' data-length= '{{entry.label.length}}: {{galleryView.data_length}}' data-rating='{{galleryView.data_rating}}' type="audio/mp3" alt="{{galleryView.alt}}">
 					</li>
 				{% endfor %}
 			</ul>

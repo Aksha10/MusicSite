@@ -7,8 +7,8 @@
 </div>	
 <div class="grid">
   <div class="picLine">
-    {% for gridView in entry.grid.image_grid %}
-      <img class="image imgs picLine" src="{{getAssetUrl(gridView.file)}}" data-description="{{gridView.modal_image_desc}}" alt="{{gridView.alt}}">         
+    {% for gridView in entry.image_view %}
+      <img class="image imgs picLine" src="{{getAssetUrl(gridView.file)}}" data-description="{{gridView.image_desc}}" alt="{{gridView.alt}}">             
     {% endfor %}
   </div>
   <div class="container1">
@@ -27,11 +27,11 @@
       </div>
       <div class="es-carousel">
         <ul>
-          {% for galleryView in entry.gallery.gallery_view %}
+          {% for galleryView in entry.image_view %}
             <li>
               <a href="#">
-                <img class="images" src="{{getAssetUrl(galleryView.image)}}" 
-                data-large="{{getAssetUrl(galleryView.image)}}"
+                <img class="images" src="{{getAssetUrl(galleryView.file)}}" 
+                data-large="{{getAssetUrl(galleryView.file)}}"
                 data-description="{{galleryView.image_desc}}" alt"{{galleryView.alt}}">
               </a>    
             </li>

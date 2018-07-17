@@ -15,7 +15,7 @@ $(document).ready(function () {
 	$('.image').click(function (imgs) {
 		var expandImg = document.getElementById("expandedImg");
 		var imgText = document.getElementById("imgtext");
-		imgText.data-description = $(this)[0].data-description;
+		imgText.innerText = $(this).data('description');
 		expandImg.src = $(this)[0].src;
 		expandImg.parentElement.style.display = "block";
 	})

@@ -20,7 +20,7 @@
 		<div class="gridimg" >
 			<img class="playVid vidDesc" id="{{gridView.video.url}}" src="{{gridView.image.url}}" 
 				data-placement="top" title="{{gridView.video_title}}" data-title="{{gridView.data_title}}" 
-				data-artist="{{gridView.data_artist}}" data-genre= "{{gridView.data_genre}}" data-length= "{{gridView.data_length}}" data-rating="{{gridView.data_rating}}">
+				data-artist="{{gridView.data_artist}}" data-genre= "{{gridView.data_genre}}" data-length= "{{gridView.data_length}}" data-rating="{{gridView.data_rating}}" alt="{{gridView.alt}}">
 		</div>
 	{% endfor %}
 	</div>
@@ -35,7 +35,7 @@
 					<li class="videoFlip" data-placement="top" title="{{galleryView.video_title.url}}" >
 						<video class="pausevid vidDesc" width="450px" controls poster="{{galleryView.image.url}}" 
 						data-title='{{galleryView.data_title}}' data-artist='{{galleryView.data_artist}}' data-genre= '{{galleryView.data_genre}}' 
-						data-length= '{{galleryView.data_length}}' data-rating='{{galleryView.data_rating}}'>
+						data-length= '{{galleryView.data_length}}' data-rating='{{galleryView.data_rating}}'alt="{{galleryView.alt}}">
 						<source src="{{galleryView.video.url}}" type="video/mp4"></video>
 					</li>
 				{% endfor %}
